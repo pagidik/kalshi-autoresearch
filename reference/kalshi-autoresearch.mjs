@@ -1,4 +1,4 @@
-﻿/**
+/**
  * kalshi-autoresearch.mjs Ã¢â‚¬â€ Autoresearch Orchestrator
  *
  * Applies Karpathy's autoresearch methodology to the Kalshi signal filter.
@@ -24,11 +24,11 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const FILES = {
-  predictions: join(__dirname, 'kalshi-predictions.json'),
-  config:      join(__dirname, 'kalshi-config.json'),
-  program:     join(__dirname, 'kalshi-program.md'),
-  log:         join(__dirname, 'kalshi-experiment-log.jsonl'),
-  summary:     join(__dirname, 'kalshi-research-summary.md'),
+  predictions: join(process.cwd(), 'kalshi-predictions.json'),
+  config:      join(process.cwd(), 'kalshi-config.json'),
+  program:     join(process.cwd(), 'kalshi-program.md'),
+  log:         join(process.cwd(), 'kalshi-experiment-log.jsonl'),
+  summary:     join(process.cwd(), 'kalshi-research-summary.md'),
 }
 
 // Ã¢â€â‚¬Ã¢â€â‚¬ Experiment log helpers Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
@@ -51,7 +51,7 @@ async function readLog() {
 function runBacktest(params) {
   try {
     const out = execSync(
-      `node "${join(__dirname, 'kalshi-backtest.mjs')}"`,
+      `node "${join(process.cwd(), 'kalshi-backtest.mjs')}"`,
       { cwd: __dirname, encoding: 'utf8', timeout: 15000,
         env: { ...process.env, BACKTEST_CONFIG: JSON.stringify(params) } }
     ).trim()

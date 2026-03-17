@@ -2,7 +2,7 @@
 
 **Target:** AI Grant (aigrant.org) -- $5,000-$50,000 for open source AI projects
 **Applicant:** Kishore Reddy Pagidi
-**Email:** kishorereddy097@gmail.com
+**Email:** [your-email@example.com]
 **GitHub:** github.com/pagidik/kalshi-autoresearch (to be created)
 **Amount requested:** $15,000
 

@@ -1,5 +1,5 @@
 /**
- * kalshi-memory.mjs â€” OpenViking-style Hierarchical Memory for Kalshi
+ * kalshi-memory.mjs Ã¢â‚¬â€ OpenViking-style Hierarchical Memory for Kalshi
  *
  * L0: Category-level summaries (sports / politics / crypto / other)
  * L1: Condition-level patterns (implied range bucket + dip + cluster)
@@ -14,8 +14,8 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const PREDICTIONS_FILE = join(__dirname, 'kalshi-predictions.json')
-const MEMORY_FILE = join(__dirname, 'kalshi-memory.json')
+const PREDICTIONS_FILE = join(process.cwd(), 'kalshi-predictions.json')
+const MEMORY_FILE = join(process.cwd(), 'kalshi-memory.json')
 
 function bucket(impliedPct) {
   if (impliedPct >= 90) return '90-100'
@@ -38,7 +38,7 @@ async function main() {
   const settled = predictions.filter(p => ['won','lost'].includes(p.status))
 
   // =============================================
-  // L0 â€” CATEGORY LEVEL MEMORY
+  // L0 Ã¢â‚¬â€ CATEGORY LEVEL MEMORY
   // =============================================
   const L0 = {}
   for (const p of settled) {
@@ -58,7 +58,7 @@ async function main() {
   }
 
   // =============================================
-  // L1 â€” CONDITION-LEVEL MEMORY (pattern matching)
+  // L1 Ã¢â‚¬â€ CONDITION-LEVEL MEMORY (pattern matching)
   // =============================================
   const L1 = {}
   for (const p of settled) {

@@ -1,0 +1,54 @@
+# === SECRETS -- NEVER COMMIT THESE ===
+*.pem
+*.key
+*.env
+.env*
+!.env.example
+secrets.*
+*secret*
+*private*
+
+# Kalshi API credentials
+kalshi-config.json
+kalshi-predictions.json
+kalshi-state.json
+kalshi-velocity-state.json
+kalshi-experiment-log.jsonl
+kalshi-research-log.jsonl
+futures-btc-state.json
+futures-btc-trades.jsonl
+futures-research-log.jsonl
+futures-config.json
+futures-experiments.json
+
+# Any file with real API keys
+*api-key*
+*apikey*
+
+# Local data that may contain PII
+*.jsonl
+predictions-live.json
+
+# Grant application (contains personal info -- keep local only)
+GRANT_APPLICATION.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

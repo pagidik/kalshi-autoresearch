@@ -1,5 +1,5 @@
 /**
- * kalshi-swarm.mjs — MiroFish-inspired Multi-Config Consensus Voting
+ * kalshi-swarm.mjs â€” MiroFish-inspired Multi-Config Consensus Voting
  *
  * Concept from MiroFish: only act when multiple independent agents agree.
  * Here: run N config variants simultaneously, trade only when M of N agree.
@@ -17,9 +17,9 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const CONFIG_FILE  = join(__dirname, 'kalshi-config.json')
-const MEMORY_FILE  = join(__dirname, 'kalshi-memory.json')
-const SWARM_FILE   = join(__dirname, 'kalshi-swarm-config.json')
+const CONFIG_FILE  = join(process.cwd(), 'kalshi-config.json')
+const MEMORY_FILE  = join(process.cwd(), 'kalshi-memory.json')
+const SWARM_FILE   = join(process.cwd(), 'kalshi-swarm-config.json')
 
 // =============================================
 // SWARM: 5 independent agents with different personalities
