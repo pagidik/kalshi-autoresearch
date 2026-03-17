@@ -1,0 +1,26 @@
+{
+  "batch": "initialization_coupling",
+  "batch_index": 16,
+  "assessments": {
+    "initialization_coupling": 90.0
+  },
+  "dimension_notes": {
+    "initialization_coupling": {
+      "evidence": [
+        "No import-time side effects",
+        "Module-level constants are simple immutable values",
+        "Standard logging.getLogger(__name__) pattern"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "initialization_coupling": {
+      "dimension_character": "Clean initialization patterns. No import-time side effects, no global mutable state. Loggers properly initialized.",
+      "score_rationale": "No coupling concerns at import time. Standard logger initialization pattern."
+    }
+  },
+  "issues": []
+}

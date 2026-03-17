@@ -6,7 +6,7 @@ setup(
     name="kalshi-autoresearch",
     version="0.1.0",
     description="Self-improving signal detection for Kalshi prediction markets",
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     packages=find_packages(include=["kalshi_autoresearch*"]),
     python_requires=">=3.10",

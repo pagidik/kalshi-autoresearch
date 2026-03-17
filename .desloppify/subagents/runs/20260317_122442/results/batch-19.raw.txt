@@ -1,0 +1,42 @@
+{
+  "batch": "logic_clarity",
+  "batch_index": 19,
+  "assessments": {
+    "logic_clarity": 68.0
+  },
+  "dimension_notes": {
+    "logic_clarity": {
+      "evidence": [
+        "Confusing price normalization heuristic",
+        "Clear patterns elsewhere"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "logic_clarity": {
+      "dimension_character": "Mostly clear logic with confusing monitor.scan() patterns.",
+      "score_rationale": "Price normalization heuristic is fragile and unclear."
+    }
+  },
+  "issues": [
+    {
+      "dimension": "logic_clarity",
+      "identifier": "fragile_price_heuristic",
+      "summary": "Fragile > 1 heuristic for cents vs decimal detection",
+      "related_files": [
+        "kalshi_autoresearch/monitor.py"
+      ],
+      "evidence": [
+        "price_cents / 100.0 if price_cents > 1 - arbitrary threshold"
+      ],
+      "suggestion": "Document assumption or use API schema",
+      "confidence": "high",
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    }
+  ],
+  "context_updates": {}
+}

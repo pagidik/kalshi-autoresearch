@@ -6,6 +6,8 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any
 
+from .types import Prediction, SignalDict
+
 
 @dataclass
 class Condition:
@@ -16,6 +18,15 @@ class Condition:
     total_bets: int
     pnl: float
     edge: float
+
+
+def _classify_implied_bucket(implied: float) -> str:
+    """Classify an implied probability into a named bucket."""
+    if implied >= 0.85:
+        return "very_high_implied"
+    elif implied >= 0.70:
+        return "high_implied"
+    return "moderate_implied"
 
 
 class Memory:
@@ -33,7 +44,7 @@ class Memory:
         self._l2: list[dict[str, Any]] = []
 
     @classmethod
-    def from_predictions(cls, predictions: list[dict[str, Any]]) -> Memory:
+    def from_predictions(cls, predictions: list[Prediction]) -> Memory:
         """Build a Memory from a list of prediction dicts.
 
         Each prediction should have: category, implied_pct, outcome, dollar_observed.
@@ -63,12 +74,12 @@ class Memory:
         for cat in cat_total:
             total = cat_total[cat]
             wins = cat_wins[cat]
-            wr = wins / total if total > 0 else 0.0
+            win_rate = wins / total if total > 0 else 0.0
             mem._l0[cat] = {
-                "win_rate": wr,
+                "win_rate": win_rate,
                 "total": total,
                 "pnl": cat_pnl[cat],
-                "edge": wr - 0.5,
+                "edge": win_rate - 0.5,
             }
 
         # L1: condition-level patterns
@@ -82,13 +93,7 @@ class Memory:
             implied = pred.get("implied_pct", 0.5)
             outcome = pred.get("outcome", 0)
 
-            if implied >= 0.85:
-                bucket = "very_high_implied"
-            elif implied >= 0.70:
-                bucket = "high_implied"
-            else:
-                bucket = "moderate_implied"
-
+            bucket = _classify_implied_bucket(implied)
             key = f"{cat}_{bucket}"
             cond_data[key]["wins"] += outcome
             cond_data[key]["total"] += 1
@@ -98,14 +103,14 @@ class Memory:
             total = stats["total"]
             if total == 0:
                 continue
-            wr = stats["wins"] / total
+            win_rate = stats["wins"] / total
             mem._l1.append(
                 Condition(
                     label=label,
-                    win_rate=wr,
+                    win_rate=win_rate,
                     total_bets=total,
                     pnl=stats["pnl"],
-                    edge=wr - 0.5,
+                    edge=win_rate - 0.5,
                 )
             )
 
@@ -123,7 +128,7 @@ class Memory:
         """
         return self._l1[:n]
 
-    def should_trade(self, signal: dict[str, Any]) -> tuple[bool, str]:
+    def should_trade(self, signal: SignalDict) -> tuple[bool, str]:
         """Decide whether to trade a signal based on learned patterns.
 
         Args:
@@ -144,20 +149,20 @@ class Memory:
             return True, f"Insufficient data for category '{cat}', allowing trade"
 
         # Check L1: condition-level
-        if implied >= 0.85:
-            bucket = "very_high_implied"
-        elif implied >= 0.70:
-            bucket = "high_implied"
-        else:
-            bucket = "moderate_implied"
-
+        bucket = _classify_implied_bucket(implied)
         key = f"{cat}_{bucket}"
-        for cond in self._l1:
-            if cond.label == key:
-                if cond.edge > 0 and cond.total_bets >= 3:
-                    return True, f"Condition '{key}' has positive edge ({cond.edge:.2f})"
-                elif cond.edge < -0.05 and cond.total_bets >= 5:
-                    return False, f"Condition '{key}' has negative edge ({cond.edge:.2f})"
-                break
+        cond = self._get_condition(key)
+        if cond is not None:
+            if cond.edge > 0 and cond.total_bets >= 3:
+                return True, f"Condition '{key}' has positive edge ({cond.edge:.2f})"
+            if cond.edge < -0.05 and cond.total_bets >= 5:
+                return False, f"Condition '{key}' has negative edge ({cond.edge:.2f})"
 
         return True, "No strong signal from memory, defaulting to trade"
+
+    def _get_condition(self, label: str) -> Condition | None:
+        """Look up a condition by label."""
+        for cond in self._l1:
+            if cond.label == label:
+                return cond
+        return None

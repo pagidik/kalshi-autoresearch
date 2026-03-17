@@ -11,6 +11,7 @@ from typing import Any
 
 from .backtest import backtest
 from .config import DEFAULT_CONFIG, save_config
+from .types import Prediction
 
 logger = logging.getLogger(__name__)
 
@@ -84,12 +85,14 @@ class Autoresearch:
         waves: int = 5,
         per_wave: int = 40,
         log_file: str | Path = "autoresearch-log.jsonl",
+        output_config_path: str | Path = "best_config.json",
     ) -> None:
         self.waves = waves
         self.per_wave = per_wave
         self.log_file = Path(log_file)
+        self.output_config_path = Path(output_config_path)
 
-    def run(self, predictions: list[dict[str, Any]]) -> AutoresearchResult:
+    def run(self, predictions: list[Prediction]) -> AutoresearchResult:
         """Run the autoresearch optimization loop.
 
         Args:
@@ -143,7 +146,7 @@ class Autoresearch:
             winners = [cfg for _, cfg in all_results[:5]]
 
         # Save best config
-        save_config(best_config, "best_config.json")
+        save_config(best_config, self.output_config_path)
 
         # Top configs
         all_results.sort(key=lambda x: x[0], reverse=True)

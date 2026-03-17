@@ -1,0 +1,20 @@
+{
+  "session_id": "ext_20260317_124838_d599922a",
+  "status": "submitted",
+  "runner": "claude",
+  "created_at": "2026-03-17T12:48:38+00:00",
+  "expires_at": "2026-03-18T12:48:38+00:00",
+  "ttl_hours": 24,
+  "token": "7e50bac9f85ad4549a78759ed7ac58e6",
+  "attest": "I validated this review was completed without awareness of overall score and is unbiased.",
+  "packet_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\review_packets\\holistic_packet_20260317_124838.json",
+  "blind_packet_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\review_packet_blind.json",
+  "packet_sha256": "d6b9128386aa1900495f1f632f5569e719679caccdff0c5c32a75e6c6a97580d",
+  "template_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\external_review_sessions\\ext_20260317_124838_d599922a\\review_result.template.json",
+  "launch_prompt_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\external_review_sessions\\ext_20260317_124838_d599922a\\claude_launch_prompt.md",
+  "instructions_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\external_review_sessions\\ext_20260317_124838_d599922a\\reviewer_instructions.md",
+  "expected_output_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\external_review_sessions\\ext_20260317_124838_d599922a\\review_result.json",
+  "submitted_at": "2026-03-17T12:49:43+00:00",
+  "submitted_input_file": ".desloppify\\external_review_sessions\\ext_20260317_124838_d599922a\\review_result.json",
+  "submitted_canonical_file": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\external_review_sessions\\ext_20260317_124838_d599922a\\canonical_import_20260317_124942.json"
+}

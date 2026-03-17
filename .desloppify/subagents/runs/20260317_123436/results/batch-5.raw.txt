@@ -1,0 +1,38 @@
+{
+  "batch": "naming_quality",
+  "batch_index": 5,
+  "assessments": {
+    "naming_quality": 80.0
+  },
+  "dimension_notes": {
+    "naming_quality": {
+      "evidence": [
+        "Clear public API names: Monitor, Signal, Memory, Swarm",
+        "Descriptive method names: scan(), vote(), should_trade()",
+        "Improved internal variable naming"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "naming_quality": {
+      "dimension_character": "Public API names are clear and domain-appropriate. Internal variable names have been improved. config.py uses file_path instead of p.",
+      "score_rationale": "Good naming throughout. Public API names clearly communicate intent. Internal variables expanded where abbreviated."
+    }
+  },
+  "issues": [],
+  "context_updates": {
+    "naming_quality": {
+      "add": [
+        {
+          "header": "Clear domain-specific public API",
+          "description": "Class and method names map directly to trading domain concepts.",
+          "settled": true,
+          "positive": true
+        }
+      ]
+    }
+  }
+}

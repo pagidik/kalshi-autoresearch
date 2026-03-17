@@ -1,0 +1,540 @@
+{
+  "assessments": {
+    "abstraction_fitness": {
+      "score": 76.0,
+      "components": [
+        "Abstraction Leverage",
+        "Indirection Cost",
+        "Interface Honesty",
+        "Delegation Density",
+        "Definition Directness",
+        "Type Discipline"
+      ],
+      "component_scores": {
+        "Abstraction Leverage": 72.0,
+        "Indirection Cost": 85.0,
+        "Interface Honesty": 78.0,
+        "Delegation Density": 70.0,
+        "Definition Directness": 80.0,
+        "Type Discipline": 74.0
+      }
+    },
+    "convention_outlier": 80.0,
+    "cross_module_architecture": 78.0,
+    "design_coherence": 73.0,
+    "high_level_elegance": 75.0,
+    "logic_clarity": 68.0,
+    "low_level_elegance": 65.0,
+    "mid_level_elegance": 72.0,
+    "naming_quality": 72.0,
+    "test_strategy": 45.0
+  },
+  "dimension_notes": {
+    "cross_module_architecture": {
+      "evidence": [
+        "Clean module separation with clear responsibilities",
+        "No circular imports",
+        "Unused re import in monitor.py"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "high_level_elegance": {
+      "evidence": [
+        "Clean __init__.py exports",
+        "Dataclass result types",
+        "Confusing double dollar calculation in monitor.scan()"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "convention_outlier": {
+      "evidence": [
+        "Consistent __future__ annotations",
+        "Optional vs pipe syntax inconsistency"
+      ],
+      "impact_scope": "local",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "naming_quality": {
+      "evidence": [
+        "Clear public API names",
+        "Overly abbreviated internal variables"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "abstraction_fitness": {
+      "evidence": [
+        "Good dataclass usage",
+        "Duplicated bucket logic in memory.py"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": "",
+      "sub_axes": {
+        "abstraction_leverage": 72.0,
+        "indirection_cost": 85.0,
+        "interface_honesty": 78.0,
+        "delegation_density": 70.0,
+        "definition_directness": 80.0,
+        "type_discipline": 74.0
+      }
+    },
+    "low_level_elegance": {
+      "evidence": [
+        "Dead code in monitor.scan()",
+        "Unused re import",
+        "Unused ewma_edge variable"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "mid_level_elegance": {
+      "evidence": [
+        "Well-structured functions",
+        "Awkward list/tuple handling in _passes_filter"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "test_strategy": {
+      "evidence": [
+        "Only backtest module has tests",
+        "No tests for monitor, memory, swarm, autoresearch, config"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "design_coherence": {
+      "evidence": [
+        "Consistent result dataclasses",
+        "Dict-based signal passing",
+        "Hardcoded output path in autoresearch"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "medium",
+      "issues_preventing_higher_score": ""
+    },
+    "logic_clarity": {
+      "evidence": [
+        "Confusing price normalization heuristic",
+        "Clear patterns elsewhere"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    }
+  },
+  "dimension_judgment": {
+    "cross_module_architecture": {
+      "dimension_character": "Small flat module structure with clear separation. Dependencies flow unidirectionally without cycles.",
+      "score_rationale": "Clean for its size. Minor issue with unused import. Good module boundaries."
+    },
+    "high_level_elegance": {
+      "dimension_character": "Clear conceptual flow with clean interfaces. Each module has single responsibility.",
+      "score_rationale": "Good organization. Loses points for confusing double-calculation in monitor.scan()."
+    },
+    "convention_outlier": {
+      "dimension_character": "Mostly consistent conventions with minor Optional vs pipe syntax outlier.",
+      "score_rationale": "Good consistency. Minor typing style inconsistency."
+    },
+    "naming_quality": {
+      "dimension_character": "Good public names, terse internal variables.",
+      "score_rationale": "Abbreviated variables (p, wr, cat, cfg, lo, hi) require context to understand."
+    },
+    "abstraction_fitness": {
+      "dimension_character": "Well-chosen abstractions with some duplication.",
+      "score_rationale": "Good overall. Duplicated bucket logic reduces score."
+    },
+    "low_level_elegance": {
+      "dimension_character": "Several dead code and unused computation issues.",
+      "score_rationale": "Multiple dead code patterns significantly reduce craft quality."
+    },
+    "mid_level_elegance": {
+      "dimension_character": "Generally well-structured with some awkward patterns.",
+      "score_rationale": "Most functions readable. _passes_filter type ambiguity is main friction."
+    },
+    "test_strategy": {
+      "dimension_character": "Severely limited test coverage - only 1 of 6 modules tested.",
+      "score_rationale": "Only backtest has tests. Critical modules like memory and swarm are untested."
+    },
+    "design_coherence": {
+      "dimension_character": "Clear vision with some implementation inconsistency.",
+      "score_rationale": "Good concept but Signal/dict duality and hardcoded path reduce coherence."
+    },
+    "logic_clarity": {
+      "dimension_character": "Mostly clear logic with confusing monitor.scan() patterns.",
+      "score_rationale": "Price normalization heuristic is fragile and unclear."
+    }
+  },
+  "issues": [
+    {
+      "dimension": "cross_module_architecture",
+      "identifier": "unused_re_import",
+      "summary": "monitor.py imports re but never uses it",
+      "confidence": "high",
+      "suggestion": "Remove unused import",
+      "related_files": [
+        "kalshi_autoresearch/monitor.py"
+      ],
+      "evidence": [
+        "import re on line 7 is never used"
+      ],
+      "impact_scope": "local",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "high_level_elegance",
+      "identifier": "monitor_double_calc",
+      "summary": "monitor.scan() computes dollar_observed twice, second overwrites first",
+      "confidence": "high",
+      "suggestion": "Remove first calculation, keep cents-based one",
+      "related_files": [
+        "kalshi_autoresearch/monitor.py"
+      ],
+      "evidence": [
+        "Lines 105-109: dollar_observed calculated then immediately overwritten"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "convention_outlier",
+      "identifier": "optional_vs_pipe",
+      "summary": "monitor.py uses Optional[] while rest uses pipe syntax",
+      "confidence": "high",
+      "suggestion": "Replace Optional[list[str]] with list[str] | None",
+      "related_files": [
+        "kalshi_autoresearch/monitor.py"
+      ],
+      "evidence": [
+        "monitor.py uses Optional[list[str]] while others use X | None"
+      ],
+      "impact_scope": "local",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "naming_quality",
+      "identifier": "terse_variable_names",
+      "summary": "Multiple files use overly abbreviated variable names",
+      "confidence": "high",
+      "suggestion": "Expand to descriptive names",
+      "related_files": [
+        "kalshi_autoresearch/config.py",
+        "kalshi_autoresearch/memory.py",
+        "kalshi_autoresearch/backtest.py"
+      ],
+      "evidence": [
+        "config.py: p, memory.py: wr/cat/mem, backtest.py: lo/hi/cfg"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor"
+    },
+    {
+      "dimension": "abstraction_fitness",
+      "identifier": "duplicated_bucket_logic",
+      "summary": "Implied probability bucketing duplicated in memory.py",
+      "confidence": "high",
+      "suggestion": "Extract helper method",
+      "related_files": [
+        "kalshi_autoresearch/memory.py"
+      ],
+      "evidence": [
+        "Lines 85-90 and 147-152 contain identical bucketing logic"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "low_level_elegance",
+      "identifier": "unused_ewma_edge",
+      "summary": "ewma_edge computed but never used in result",
+      "confidence": "high",
+      "suggestion": "Remove unused computation",
+      "related_files": [
+        "kalshi_autoresearch/backtest.py"
+      ],
+      "evidence": [
+        "ewma_edge computed each iteration but never referenced after loop"
+      ],
+      "impact_scope": "local",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "low_level_elegance",
+      "identifier": "dead_dollar_calc",
+      "summary": "First dollar_observed calculation is dead code",
+      "confidence": "high",
+      "suggestion": "Remove dead calculation",
+      "related_files": [
+        "kalshi_autoresearch/monitor.py"
+      ],
+      "evidence": [
+        "dollar_observed on line 105 immediately overwritten on lines 108-109"
+      ],
+      "impact_scope": "local",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "mid_level_elegance",
+      "identifier": "filter_type_ambiguity",
+      "summary": "_passes_filter has runtime isinstance check for implied_range type",
+      "confidence": "high",
+      "suggestion": "Always unpack with indexing",
+      "related_files": [
+        "kalshi_autoresearch/backtest.py"
+      ],
+      "evidence": [
+        "isinstance(lo, list) check on line 33"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "test_strategy",
+      "identifier": "no_config_tests",
+      "summary": "config module has no tests",
+      "confidence": "high",
+      "suggestion": "Add tests for load_config and save_config",
+      "related_files": [
+        "kalshi_autoresearch/config.py"
+      ],
+      "evidence": [
+        "No test file for config.py"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "test_strategy",
+      "identifier": "no_memory_tests",
+      "summary": "memory module has no tests",
+      "confidence": "high",
+      "suggestion": "Add tests for Memory class",
+      "related_files": [
+        "kalshi_autoresearch/memory.py"
+      ],
+      "evidence": [
+        "No test file for memory.py"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "test_strategy",
+      "identifier": "no_swarm_tests",
+      "summary": "swarm module has no tests",
+      "confidence": "high",
+      "suggestion": "Add tests for Swarm consensus",
+      "related_files": [
+        "kalshi_autoresearch/swarm.py"
+      ],
+      "evidence": [
+        "No test file for swarm.py"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "test_strategy",
+      "identifier": "no_monitor_tests",
+      "summary": "monitor module has no tests for non-network logic",
+      "confidence": "high",
+      "suggestion": "Add tests for detect_category",
+      "related_files": [
+        "kalshi_autoresearch/monitor.py"
+      ],
+      "evidence": [
+        "No test file for detect_category"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "design_coherence",
+      "identifier": "hardcoded_output_path",
+      "summary": "Autoresearch.run() hardcodes output to best_config.json",
+      "confidence": "high",
+      "suggestion": "Make output path configurable",
+      "related_files": [
+        "kalshi_autoresearch/autoresearch.py"
+      ],
+      "evidence": [
+        "Line 146: save_config(best_config, 'best_config.json')"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    },
+    {
+      "dimension": "logic_clarity",
+      "identifier": "fragile_price_heuristic",
+      "summary": "Fragile > 1 heuristic for cents vs decimal detection",
+      "confidence": "high",
+      "suggestion": "Document assumption or use API schema",
+      "related_files": [
+        "kalshi_autoresearch/monitor.py"
+      ],
+      "evidence": [
+        "price_cents / 100.0 if price_cents > 1 - arbitrary threshold"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    }
+  ],
+  "review_quality": {
+    "batch_count": 10,
+    "dimension_coverage": 0.05,
+    "evidence_density": 2.1,
+    "high_score_missing_issue_note": 0
+  },
+  "context_updates": {
+    "cross_module_architecture": {
+      "add": [
+        {
+          "header": "Flat unidirectional module structure",
+          "description": "All modules at package root with clean dependency direction.",
+          "settled": true,
+          "positive": true
+        }
+      ]
+    },
+    "high_level_elegance": {
+      "add": [
+        {
+          "header": "Clean dataclass result types",
+          "description": "All result types use dataclasses with clear fields.",
+          "settled": true,
+          "positive": true
+        }
+      ]
+    }
+  },
+  "review_scope": {
+    "reviewed_files_count": 0,
+    "successful_batch_count": 10,
+    "full_sweep_included": false,
+    "total_files": 7,
+    "imported_dimensions": [
+      "abstraction_fitness",
+      "convention_outlier",
+      "cross_module_architecture",
+      "design_coherence",
+      "high_level_elegance",
+      "logic_clarity",
+      "low_level_elegance",
+      "mid_level_elegance",
+      "naming_quality",
+      "test_strategy"
+    ]
+  },
+  "provenance": {
+    "kind": "blind_review_batch_import",
+    "blind": true,
+    "runner": "dry-run",
+    "run_stamp": "20260317_122442",
+    "created_at": "2026-03-17T12:31:01+00:00",
+    "batch_count": 10,
+    "batch_indexes": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      8,
+      9,
+      10,
+      17,
+      19
+    ],
+    "packet_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\review_packet_blind.json",
+    "packet_sha256": "4a266b81c80154ebe4c2c2ca77d54e399e95510dfaa808909ff358c612ba6975"
+  },
+  "assessment_coverage": {
+    "scored_dimensions": [
+      "naming_quality",
+      "logic_clarity",
+      "type_safety",
+      "contract_coherence",
+      "error_consistency",
+      "abstraction_fitness",
+      "ai_generated_debt",
+      "high_level_elegance",
+      "mid_level_elegance",
+      "low_level_elegance",
+      "cross_module_architecture",
+      "initialization_coupling",
+      "convention_outlier",
+      "dependency_health",
+      "test_strategy",
+      "api_surface_coherence",
+      "authorization_consistency",
+      "incomplete_migration",
+      "package_organization",
+      "design_coherence"
+    ],
+    "selected_dimensions": [
+      "naming_quality",
+      "logic_clarity",
+      "type_safety",
+      "contract_coherence",
+      "error_consistency",
+      "abstraction_fitness",
+      "ai_generated_debt",
+      "high_level_elegance",
+      "mid_level_elegance",
+      "low_level_elegance",
+      "cross_module_architecture",
+      "initialization_coupling",
+      "convention_outlier",
+      "dependency_health",
+      "test_strategy",
+      "api_surface_coherence",
+      "authorization_consistency",
+      "incomplete_migration",
+      "package_organization",
+      "design_coherence"
+    ],
+    "imported_dimensions": [
+      "abstraction_fitness",
+      "convention_outlier",
+      "cross_module_architecture",
+      "design_coherence",
+      "high_level_elegance",
+      "logic_clarity",
+      "low_level_elegance",
+      "mid_level_elegance",
+      "naming_quality",
+      "test_strategy"
+    ],
+    "missing_dimensions": [
+      "type_safety",
+      "contract_coherence",
+      "error_consistency",
+      "ai_generated_debt",
+      "initialization_coupling",
+      "dependency_health",
+      "api_surface_coherence",
+      "authorization_consistency",
+      "incomplete_migration",
+      "package_organization"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "batch": "naming_quality",
+  "batch_index": 5,
+  "assessments": {
+    "naming_quality": 72.0
+  },
+  "dimension_notes": {
+    "naming_quality": {
+      "evidence": [
+        "Clear public API names",
+        "Overly abbreviated internal variables"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "naming_quality": {
+      "dimension_character": "Good public names, terse internal variables.",
+      "score_rationale": "Abbreviated variables (p, wr, cat, cfg, lo, hi) require context to understand."
+    }
+  },
+  "issues": [
+    {
+      "dimension": "naming_quality",
+      "identifier": "terse_variable_names",
+      "summary": "Multiple files use overly abbreviated variable names",
+      "related_files": [
+        "kalshi_autoresearch/config.py",
+        "kalshi_autoresearch/memory.py",
+        "kalshi_autoresearch/backtest.py"
+      ],
+      "evidence": [
+        "config.py: p, memory.py: wr/cat/mem, backtest.py: lo/hi/cfg"
+      ],
+      "suggestion": "Expand to descriptive names",
+      "confidence": "high",
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor"
+    }
+  ],
+  "context_updates": {}
+}

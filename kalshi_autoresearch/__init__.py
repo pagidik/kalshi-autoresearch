@@ -11,6 +11,7 @@ from .monitor import Monitor, Signal
 from .autoresearch import Autoresearch, AutoresearchResult
 from .memory import Memory, Condition
 from .swarm import Swarm, SwarmResult
+from .types import Prediction, SignalDict
 
 __version__ = "0.1.0"
 __all__ = [
@@ -20,4 +21,5 @@ __all__ = [
     "Swarm", "SwarmResult",
     "backtest", "BacktestResult",
     "load_config", "save_config", "DEFAULT_CONFIG",
+    "Prediction", "SignalDict",
 ]

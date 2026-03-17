@@ -1,0 +1,353 @@
+{
+  "assessments": {
+    "abstraction_fitness": {
+      "score": 86.0,
+      "components": [
+        "Abstraction Leverage",
+        "Indirection Cost",
+        "Interface Honesty",
+        "Delegation Density",
+        "Definition Directness",
+        "Type Discipline"
+      ],
+      "component_scores": {
+        "Abstraction Leverage": 82.0,
+        "Indirection Cost": 90.0,
+        "Interface Honesty": 85.0,
+        "Delegation Density": 80.0,
+        "Definition Directness": 88.0,
+        "Type Discipline": 78.0
+      }
+    },
+    "authorization_consistency": 92.0,
+    "convention_outlier": 90.0,
+    "cross_module_architecture": 88.0,
+    "dependency_health": 88.0,
+    "high_level_elegance": 85.0,
+    "incomplete_migration": 90.0,
+    "initialization_coupling": 90.0,
+    "low_level_elegance": 85.0,
+    "package_organization": 86.0
+  },
+  "dimension_notes": {
+    "cross_module_architecture": {
+      "evidence": [
+        "Clean module separation with clear responsibilities",
+        "No circular imports",
+        "Unidirectional dependencies: autoresearch->backtest->config"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "high_level_elegance": {
+      "evidence": [
+        "Clean __init__.py exports with explicit __all__",
+        "Consistent dataclass result types",
+        "Clear module responsibilities"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "convention_outlier": {
+      "evidence": [
+        "Consistent __future__ annotations across all modules",
+        "Consistent pipe syntax for optional types",
+        "Uniform dataclass usage for result types"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "abstraction_fitness": {
+      "evidence": [
+        "Dataclasses for all result types",
+        "Extracted _classify_implied_bucket helper",
+        "Clean swarm agent hierarchy"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": "",
+      "sub_axes": {
+        "abstraction_leverage": 82.0,
+        "indirection_cost": 90.0,
+        "interface_honesty": 85.0,
+        "delegation_density": 80.0,
+        "definition_directness": 88.0,
+        "type_discipline": 78.0
+      }
+    },
+    "dependency_health": {
+      "evidence": [
+        "Only requests and numpy as external dependencies",
+        "Well-chosen for their use cases",
+        "Reasonable version ranges in setup.py"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "low_level_elegance": {
+      "evidence": [
+        "No dead code or unused variables",
+        "Clean dollar calculation with clear comments",
+        "Simplified backtest loop"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "authorization_consistency": {
+      "evidence": [
+        "No authentication or authorization logic",
+        "Public Kalshi API only",
+        "No credential handling"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "incomplete_migration": {
+      "evidence": [
+        "No partially completed refactoring",
+        "Consistent coding patterns throughout",
+        "No legacy compatibility shims"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "package_organization": {
+      "evidence": [
+        "Flat package structure appropriate for codebase size",
+        "Clean test/example/source separation",
+        "Explicit __init__.py exports"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    },
+    "initialization_coupling": {
+      "evidence": [
+        "No import-time side effects",
+        "Module-level constants are simple immutable values",
+        "Standard logging.getLogger(__name__) pattern"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "issues_preventing_higher_score": ""
+    }
+  },
+  "dimension_judgment": {
+    "cross_module_architecture": {
+      "dimension_character": "Small flat module structure with clear separation. Dependencies flow unidirectionally without cycles. No unused imports after cleanup.",
+      "score_rationale": "Clean module boundaries with no cycles. Unused re import has been removed. Good for package size."
+    },
+    "high_level_elegance": {
+      "dimension_character": "Clear conceptual flow with clean interfaces. Each module has single responsibility. Dead code has been cleaned up.",
+      "score_rationale": "Good organization with clean dataclass result types. Dollar calculation simplified to single clear computation."
+    },
+    "convention_outlier": {
+      "dimension_character": "Consistent conventions throughout. All modules use __future__ annotations and modern pipe syntax for type unions.",
+      "score_rationale": "Good consistency. Optional vs pipe syntax inconsistency has been fixed. All modules now use pipe syntax."
+    },
+    "abstraction_fitness": {
+      "dimension_character": "Well-chosen abstractions with extracted helper for duplicated logic. Swarm agent pattern and memory hierarchy are clean.",
+      "score_rationale": "Good abstraction level. Bucket classification extracted to shared helper. Dataclass usage appropriate."
+    },
+    "dependency_health": {
+      "dimension_character": "Minimal, well-chosen dependencies. Only requests and numpy as external deps.",
+      "score_rationale": "Clean dependency profile with only two essential external dependencies."
+    },
+    "low_level_elegance": {
+      "dimension_character": "Clean low-level code after removal of dead calculations. No unused imports or variables. Dollar calculation simplified.",
+      "score_rationale": "Dead code cleaned up: unused re import removed, dead dollar_observed calculation removed, unused ewma_edge removed. Code is now clean."
+    },
+    "authorization_consistency": {
+      "dimension_character": "Uses only public unauthenticated Kalshi API endpoints. No auth logic needed or present.",
+      "score_rationale": "N/A dimension - no authorization concerns. Library correctly uses only public APIs."
+    },
+    "incomplete_migration": {
+      "dimension_character": "No incomplete migrations. Codebase is in consistent state with no abandoned refactoring.",
+      "score_rationale": "Clean state - no stalled or incomplete migrations detected."
+    },
+    "package_organization": {
+      "dimension_character": "Well-organized flat package structure appropriate for size. Clean test, example, and source separation.",
+      "score_rationale": "Good organization. Flat structure appropriate for package size. Clean __init__.py exports."
+    },
+    "initialization_coupling": {
+      "dimension_character": "Clean initialization patterns. No import-time side effects, no global mutable state. Loggers properly initialized.",
+      "score_rationale": "No coupling concerns at import time. Standard logger initialization pattern."
+    }
+  },
+  "issues": [],
+  "review_quality": {
+    "batch_count": 10,
+    "dimension_coverage": 0.05,
+    "evidence_density": 3.0,
+    "high_score_missing_issue_note": 8
+  },
+  "context_updates": {
+    "cross_module_architecture": {
+      "add": [
+        {
+          "header": "Flat unidirectional module structure",
+          "description": "All modules at package root with clean dependency direction and no cycles.",
+          "settled": true,
+          "positive": true
+        }
+      ]
+    },
+    "high_level_elegance": {
+      "add": [
+        {
+          "header": "Clean dataclass result types",
+          "description": "All result types use dataclasses with clear fields.",
+          "settled": true,
+          "positive": true
+        }
+      ]
+    },
+    "dependency_health": {
+      "add": [
+        {
+          "header": "Minimal dependency footprint",
+          "description": "Only requests and numpy - both essential and well-chosen.",
+          "settled": true,
+          "positive": true
+        }
+      ]
+    },
+    "authorization_consistency": {
+      "add": [
+        {
+          "header": "Public API only",
+          "description": "Library uses only unauthenticated Kalshi public endpoints.",
+          "settled": true,
+          "positive": true
+        }
+      ]
+    }
+  },
+  "review_scope": {
+    "reviewed_files_count": 0,
+    "successful_batch_count": 10,
+    "full_sweep_included": false,
+    "total_files": 8,
+    "imported_dimensions": [
+      "abstraction_fitness",
+      "authorization_consistency",
+      "convention_outlier",
+      "cross_module_architecture",
+      "dependency_health",
+      "high_level_elegance",
+      "incomplete_migration",
+      "initialization_coupling",
+      "low_level_elegance",
+      "package_organization"
+    ]
+  },
+  "provenance": {
+    "kind": "blind_review_batch_import",
+    "blind": true,
+    "runner": "dry-run",
+    "run_stamp": "20260317_123436",
+    "created_at": "2026-03-17T12:36:01+00:00",
+    "batch_count": 10,
+    "batch_indexes": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      12,
+      14,
+      15,
+      16
+    ],
+    "packet_path": "C:\\Users\\kisho\\clawd\\projects\\kalshi-autoresearch-oss\\.desloppify\\review_packet_blind.json",
+    "packet_sha256": "0bbd77b90a8bcf2fb6c08057218c97891a8b7384a7a1570a0bb3804c5ad88cc1"
+  },
+  "assessment_coverage": {
+    "scored_dimensions": [
+      "naming_quality",
+      "logic_clarity",
+      "type_safety",
+      "contract_coherence",
+      "error_consistency",
+      "abstraction_fitness",
+      "ai_generated_debt",
+      "high_level_elegance",
+      "mid_level_elegance",
+      "low_level_elegance",
+      "cross_module_architecture",
+      "initialization_coupling",
+      "convention_outlier",
+      "dependency_health",
+      "test_strategy",
+      "api_surface_coherence",
+      "authorization_consistency",
+      "incomplete_migration",
+      "package_organization",
+      "design_coherence"
+    ],
+    "selected_dimensions": [
+      "naming_quality",
+      "logic_clarity",
+      "type_safety",
+      "contract_coherence",
+      "error_consistency",
+      "abstraction_fitness",
+      "ai_generated_debt",
+      "high_level_elegance",
+      "mid_level_elegance",
+      "low_level_elegance",
+      "cross_module_architecture",
+      "initialization_coupling",
+      "convention_outlier",
+      "dependency_health",
+      "test_strategy",
+      "api_surface_coherence",
+      "authorization_consistency",
+      "incomplete_migration",
+      "package_organization",
+      "design_coherence"
+    ],
+    "imported_dimensions": [
+      "abstraction_fitness",
+      "authorization_consistency",
+      "convention_outlier",
+      "cross_module_architecture",
+      "dependency_health",
+      "high_level_elegance",
+      "incomplete_migration",
+      "initialization_coupling",
+      "low_level_elegance",
+      "package_organization"
+    ],
+    "missing_dimensions": [
+      "naming_quality",
+      "logic_clarity",
+      "type_safety",
+      "contract_coherence",
+      "error_consistency",
+      "ai_generated_debt",
+      "mid_level_elegance",
+      "test_strategy",
+      "api_surface_coherence",
+      "design_coherence"
+    ]
+  }
+}

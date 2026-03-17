@@ -1,0 +1,26 @@
+{
+  "batch": "type_safety",
+  "batch_index": 20,
+  "assessments": {
+    "type_safety": 72.0
+  },
+  "dimension_notes": {
+    "type_safety": {
+      "evidence": [
+        "Type annotations on all public functions",
+        "Well-defined output types via dataclasses",
+        "Consistent use of from __future__ import annotations"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "type_safety": {
+      "dimension_character": "Well-typed outputs via dataclasses. Input types use dict[str, Any] throughout. All public functions have type annotations.",
+      "score_rationale": "Asymmetry between well-typed outputs and loosely typed inputs. Acceptable for package size but limits static analysis value."
+    }
+  },
+  "issues": []
+}

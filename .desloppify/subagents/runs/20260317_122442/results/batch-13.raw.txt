@@ -1,0 +1,27 @@
+{
+  "batch": "ai_generated_debt",
+  "batch_index": 13,
+  "assessments": {
+    "ai_generated_debt": 68.0
+  },
+  "dimension_notes": {
+    "ai_generated_debt": {
+      "evidence": [
+        "Dead code patterns typical of AI iteration",
+        "Unused ewma_edge",
+        "Verbose docstrings for simple operations"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "medium"
+    }
+  },
+  "dimension_judgment": {
+    "ai_generated_debt": {
+      "dimension_character": "Several AI-generation hallmarks: dead calculations, unused variables.",
+      "score_rationale": "Multiple dead code patterns suggest AI code without careful review."
+    }
+  },
+  "issues": [],
+  "context_updates": {}
+}

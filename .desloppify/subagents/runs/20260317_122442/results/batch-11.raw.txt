@@ -1,0 +1,27 @@
+{
+  "batch": "api_surface_coherence",
+  "batch_index": 11,
+  "assessments": {
+    "api_surface_coherence": 74.0
+  },
+  "dimension_notes": {
+    "api_surface_coherence": {
+      "evidence": [
+        "Clean __all__ exports",
+        "Consistent class+result pairs",
+        "Dict-based signal passing"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "medium"
+    }
+  },
+  "dimension_judgment": {
+    "api_surface_coherence": {
+      "dimension_character": "Well-defined public API with some internal inconsistency.",
+      "score_rationale": "Clean exports but dict-based internal interfaces reduce coherence."
+    }
+  },
+  "issues": [],
+  "context_updates": {}
+}

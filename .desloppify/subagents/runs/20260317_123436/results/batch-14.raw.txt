@@ -1,0 +1,26 @@
+{
+  "batch": "incomplete_migration",
+  "batch_index": 14,
+  "assessments": {
+    "incomplete_migration": 90.0
+  },
+  "dimension_notes": {
+    "incomplete_migration": {
+      "evidence": [
+        "No partially completed refactoring",
+        "Consistent coding patterns throughout",
+        "No legacy compatibility shims"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "incomplete_migration": {
+      "dimension_character": "No incomplete migrations. Codebase is in consistent state with no abandoned refactoring.",
+      "score_rationale": "Clean state - no stalled or incomplete migrations detected."
+    }
+  },
+  "issues": []
+}

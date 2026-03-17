@@ -1,0 +1,26 @@
+{
+  "batch": "initialization_coupling",
+  "batch_index": 16,
+  "assessments": {
+    "initialization_coupling": 82.0
+  },
+  "dimension_notes": {
+    "initialization_coupling": {
+      "evidence": [
+        "No import-time side effects",
+        "Standard logger init"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "initialization_coupling": {
+      "dimension_character": "Clean initialization with no side effects.",
+      "score_rationale": "Good init hygiene. No coupling concerns."
+    }
+  },
+  "issues": [],
+  "context_updates": {}
+}

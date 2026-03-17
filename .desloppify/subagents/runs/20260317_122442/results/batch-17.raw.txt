@@ -1,0 +1,43 @@
+{
+  "batch": "design_coherence",
+  "batch_index": 17,
+  "assessments": {
+    "design_coherence": 73.0
+  },
+  "dimension_notes": {
+    "design_coherence": {
+      "evidence": [
+        "Consistent result dataclasses",
+        "Dict-based signal passing",
+        "Hardcoded output path in autoresearch"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "multi_file_refactor",
+      "confidence": "medium"
+    }
+  },
+  "dimension_judgment": {
+    "design_coherence": {
+      "dimension_character": "Clear vision with some implementation inconsistency.",
+      "score_rationale": "Good concept but Signal/dict duality and hardcoded path reduce coherence."
+    }
+  },
+  "issues": [
+    {
+      "dimension": "design_coherence",
+      "identifier": "hardcoded_output_path",
+      "summary": "Autoresearch.run() hardcodes output to best_config.json",
+      "related_files": [
+        "kalshi_autoresearch/autoresearch.py"
+      ],
+      "evidence": [
+        "Line 146: save_config(best_config, 'best_config.json')"
+      ],
+      "suggestion": "Make output path configurable",
+      "confidence": "high",
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    }
+  ],
+  "context_updates": {}
+}

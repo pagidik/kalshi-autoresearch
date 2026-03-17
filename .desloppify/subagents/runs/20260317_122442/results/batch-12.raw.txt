@@ -1,0 +1,25 @@
+{
+  "batch": "authorization_consistency",
+  "batch_index": 12,
+  "assessments": {
+    "authorization_consistency": 90.0
+  },
+  "dimension_notes": {
+    "authorization_consistency": {
+      "evidence": [
+        "No auth logic - public API only"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "authorization_consistency": {
+      "dimension_character": "Uses only public unauthenticated API endpoints.",
+      "score_rationale": "N/A dimension - no auth concerns to evaluate."
+    }
+  },
+  "issues": [],
+  "context_updates": {}
+}

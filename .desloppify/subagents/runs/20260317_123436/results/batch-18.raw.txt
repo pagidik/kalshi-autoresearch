@@ -1,0 +1,26 @@
+{
+  "batch": "contract_coherence",
+  "batch_index": 18,
+  "assessments": {
+    "contract_coherence": 74.0
+  },
+  "dimension_notes": {
+    "contract_coherence": {
+      "evidence": [
+        "Type hints on all public functions",
+        "Well-defined output types via dataclasses",
+        "Input contracts documented in docstrings"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "contract_coherence": {
+      "dimension_character": "Type hints present on all functions. Output types well-defined via dataclasses. Input types still use dict[str, Any].",
+      "score_rationale": "Well-typed outputs but input contracts rely on docstrings. Acceptable for a small package but limits type checker value."
+    }
+  },
+  "issues": []
+}

@@ -3,16 +3,14 @@
 from __future__ import annotations
 
 import logging
-import re
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Optional
 
 import requests
 
 logger = logging.getLogger(__name__)
 
-KALSHI_TRADES_URL = (
+_DEFAULT_TRADES_URL = (
     "https://api.elections.kalshi.com/trade-api/v2/markets/trades"
 )
 
@@ -51,11 +49,13 @@ class Monitor:
         self,
         min_trade_usd: float = 500,
         implied_range: tuple[float, float] = (0.65, 1.0),
-        skip_categories: Optional[list[str]] = None,
+        skip_categories: list[str] | None = None,
+        trades_url: str = _DEFAULT_TRADES_URL,
     ) -> None:
         self.min_trade_usd = min_trade_usd
         self.implied_range = implied_range
         self.skip_categories = skip_categories or []
+        self.trades_url = trades_url
 
     @staticmethod
     def detect_category(ticker: str) -> str:
@@ -83,7 +83,7 @@ class Monitor:
         """
         try:
             resp = requests.get(
-                KALSHI_TRADES_URL,
+                self.trades_url,
                 params={"limit": 100},
                 timeout=10,
             )
@@ -101,12 +101,10 @@ class Monitor:
             price_cents = trade.get("yes_price") or trade.get("no_price") or 0
             count = trade.get("count", 1)
 
-            price = price_cents / 100.0 if price_cents > 1 else price_cents
-            dollar_observed = price * count * 100  # contracts are $1 notional, price in cents
-
-            # Recompute with raw cents for dollar calc
-            dollar_observed = price_cents * count  # cents * contracts = total cents
-            dollar_observed /= 100.0  # convert to dollars
+            # Kalshi API returns prices in cents (0-99); convert to probability
+            price = price_cents / 100.0
+            # Dollar value: cents_per_contract * num_contracts, converted to dollars
+            dollar_observed = (price_cents * count) / 100.0
 
             if dollar_observed < self.min_trade_usd:
                 continue

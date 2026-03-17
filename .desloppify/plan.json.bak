@@ -1,0 +1,702 @@
+{
+  "version": 8,
+  "created": "2026-03-17T12:23:35+00:00",
+  "updated": "2026-03-17T12:49:45+00:00",
+  "queue_order": [
+    "review::.::holistic::contract_coherence::config_keys_implicit",
+    "review::.::holistic::test_strategy::no_pipeline_integration_test",
+    "review::.::holistic::type_safety::config_dict_untyped"
+  ],
+  "deferred": [],
+  "skipped": {},
+  "active_cluster": null,
+  "overrides": {
+    "test_coverage::kalshi_autoresearch/monitor.py::untested_module": {
+      "issue_id": "test_coverage::kalshi_autoresearch/monitor.py::untested_module",
+      "created_at": "2026-03-17T12:23:35+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-03-17T12:23:35+00:00"
+    },
+    "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module": {
+      "issue_id": "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module",
+      "created_at": "2026-03-17T12:23:35+00:00",
+      "cluster": null,
+      "updated_at": "2026-03-17T12:43:09+00:00"
+    },
+    "test_coverage::kalshi_autoresearch/memory.py::untested_module": {
+      "issue_id": "test_coverage::kalshi_autoresearch/memory.py::untested_module",
+      "created_at": "2026-03-17T12:23:35+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-03-17T12:23:35+00:00"
+    },
+    "test_coverage::kalshi_autoresearch/swarm.py::untested_module": {
+      "issue_id": "test_coverage::kalshi_autoresearch/swarm.py::untested_module",
+      "created_at": "2026-03-17T12:23:35+00:00",
+      "cluster": "auto/test_coverage-untested_module",
+      "updated_at": "2026-03-17T12:23:35+00:00"
+    }
+  },
+  "clusters": {
+    "auto/test_coverage-untested_module": {
+      "name": "auto/test_coverage-untested_module",
+      "description": "Fix 4 test coverage issues",
+      "issue_ids": [
+        "test_coverage::kalshi_autoresearch/monitor.py::untested_module",
+        "test_coverage::kalshi_autoresearch/memory.py::untested_module",
+        "test_coverage::kalshi_autoresearch/swarm.py::untested_module"
+      ],
+      "created_at": "2026-03-17T12:23:35+00:00",
+      "updated_at": "2026-03-17T12:23:35+00:00",
+      "auto": true,
+      "cluster_key": "detector::test_coverage::untested_module",
+      "action": "add tests for untested production modules",
+      "execution_status": "review",
+      "user_modified": false,
+      "action_type": "refactor",
+      "execution_policy": "planned_only"
+    },
+    "auto/initial-review": {
+      "name": "auto/initial-review",
+      "description": "Initial review of 20 unscored subjective dimensions",
+      "issue_ids": [],
+      "created_at": "2026-03-17T12:23:35+00:00",
+      "updated_at": "2026-03-17T12:23:35+00:00",
+      "auto": true,
+      "cluster_key": "subjective::unscored",
+      "action": "desloppify review --prepare --dimensions abstraction_fitness,ai_generated_debt,api_surface_coherence,authorization_consistency,contract_coherence,convention_outlier,cross_module_architecture,dependency_health,design_coherence,error_consistency,high_level_elegance,incomplete_migration,initialization_coupling,logic_clarity,low_level_elegance,mid_level_elegance,naming_quality,package_organization,test_strategy,type_safety",
+      "execution_status": "review",
+      "user_modified": false,
+      "action_type": "manual_fix",
+      "execution_policy": "planned_only"
+    }
+  },
+  "superseded": {
+    "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module": {
+      "original_id": "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module",
+      "original_detector": "test_coverage",
+      "original_file": "kalshi_autoresearch/autoresearch.py",
+      "original_summary": "Untested module (203 LOC, 0 importers)",
+      "status": "superseded",
+      "superseded_at": "2026-03-17T12:44:24+00:00",
+      "remapped_to": null,
+      "candidates": []
+    }
+  },
+  "promoted_ids": [],
+  "plan_start_scores": {
+    "strict": 82.8,
+    "overall": 85.2,
+    "objective": 76.5,
+    "verified": 68.5
+  },
+  "refresh_state": {
+    "lifecycle_phase": "execute",
+    "subjective_review_completed_at_scan_count": 12,
+    "postflight_scan_completed_at_scan_count": 13
+  },
+  "execution_log": [
+    {
+      "timestamp": "2026-03-17T12:23:35+00:00",
+      "action": "sync_subjective",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "changes": true
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:23:35+00:00",
+      "action": "auto_cluster",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "changes": true
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:23:35+00:00",
+      "action": "sync_lifecycle_phase",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "phase": "review_initial"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:23:35+00:00",
+      "action": "seed_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:31:02+00:00",
+      "action": "review_import_sync",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "trigger": "review_import",
+        "new_ids": [
+          "review::.::holistic::abstraction_fitness::duplicated_bucket_logic",
+          "review::.::holistic::convention_outlier::optional_vs_pipe",
+          "review::.::holistic::cross_module_architecture::unused_re_import",
+          "review::.::holistic::design_coherence::hardcoded_output_path",
+          "review::.::holistic::high_level_elegance::monitor_double_calc",
+          "review::.::holistic::logic_clarity::fragile_price_heuristic",
+          "review::.::holistic::low_level_elegance::dead_dollar_calc",
+          "review::.::holistic::low_level_elegance::unused_ewma_edge",
+          "review::.::holistic::mid_level_elegance::filter_type_ambiguity",
+          "review::.::holistic::naming_quality::terse_variable_names",
+          "review::.::holistic::test_strategy::no_config_tests",
+          "review::.::holistic::test_strategy::no_memory_tests",
+          "review::.::holistic::test_strategy::no_monitor_tests",
+          "review::.::holistic::test_strategy::no_swarm_tests"
+        ],
+        "added_to_queue": [
+          "review::.::holistic::abstraction_fitness::duplicated_bucket_logic",
+          "review::.::holistic::convention_outlier::optional_vs_pipe",
+          "review::.::holistic::cross_module_architecture::unused_re_import",
+          "review::.::holistic::design_coherence::hardcoded_output_path",
+          "review::.::holistic::high_level_elegance::monitor_double_calc",
+          "review::.::holistic::logic_clarity::fragile_price_heuristic",
+          "review::.::holistic::low_level_elegance::dead_dollar_calc",
+          "review::.::holistic::low_level_elegance::unused_ewma_edge",
+          "review::.::holistic::mid_level_elegance::filter_type_ambiguity",
+          "review::.::holistic::naming_quality::terse_variable_names",
+          "review::.::holistic::test_strategy::no_config_tests",
+          "review::.::holistic::test_strategy::no_memory_tests",
+          "review::.::holistic::test_strategy::no_monitor_tests",
+          "review::.::holistic::test_strategy::no_swarm_tests"
+        ],
+        "workflow_injected_ids": [],
+        "triage_injected": false,
+        "triage_injected_ids": [],
+        "triage_deferred": false,
+        "diff_new": 14,
+        "diff_reopened": 0,
+        "diff_auto_resolved": 10,
+        "stale_pruned_from_queue": [],
+        "covered_subjective_pruned_from_queue": [
+          "subjective::abstraction_fitness",
+          "subjective::convention_outlier",
+          "subjective::cross_module_architecture",
+          "subjective::design_coherence",
+          "subjective::high_level_elegance",
+          "subjective::logic_clarity",
+          "subjective::low_level_elegance",
+          "subjective::mid_level_elegance",
+          "subjective::naming_quality",
+          "subjective::test_strategy"
+        ],
+        "covered_subjective": [
+          "subjective::abstraction_fitness",
+          "subjective::convention_outlier",
+          "subjective::cross_module_architecture",
+          "subjective::design_coherence",
+          "subjective::high_level_elegance",
+          "subjective::logic_clarity",
+          "subjective::low_level_elegance",
+          "subjective::mid_level_elegance",
+          "subjective::naming_quality",
+          "subjective::test_strategy"
+        ],
+        "stale_sync_injected": [],
+        "stale_sync_pruned": [],
+        "auto_cluster_changes": 0,
+        "import_scores_injected": [],
+        "import_scores_pruned": [],
+        "sync_status": "synced",
+        "sync_message": null
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:36:01+00:00",
+      "action": "review_import_sync",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "trigger": "review_import",
+        "new_ids": [
+          "review::.::holistic::design_coherence::hardcoded_output_path",
+          "review::.::holistic::logic_clarity::fragile_price_heuristic",
+          "review::.::holistic::mid_level_elegance::filter_type_ambiguity",
+          "review::.::holistic::naming_quality::terse_variable_names",
+          "review::.::holistic::test_strategy::no_config_tests",
+          "review::.::holistic::test_strategy::no_memory_tests",
+          "review::.::holistic::test_strategy::no_monitor_tests",
+          "review::.::holistic::test_strategy::no_swarm_tests"
+        ],
+        "added_to_queue": [],
+        "workflow_injected_ids": [],
+        "triage_injected": false,
+        "triage_injected_ids": [],
+        "triage_deferred": false,
+        "diff_new": 0,
+        "diff_reopened": 0,
+        "diff_auto_resolved": 11,
+        "stale_pruned_from_queue": [
+          "review::.::holistic::abstraction_fitness::duplicated_bucket_logic",
+          "review::.::holistic::convention_outlier::optional_vs_pipe",
+          "review::.::holistic::cross_module_architecture::unused_re_import",
+          "review::.::holistic::high_level_elegance::monitor_double_calc",
+          "review::.::holistic::low_level_elegance::dead_dollar_calc",
+          "review::.::holistic::low_level_elegance::unused_ewma_edge"
+        ],
+        "covered_subjective_pruned_from_queue": [
+          "subjective::authorization_consistency",
+          "subjective::dependency_health",
+          "subjective::incomplete_migration",
+          "subjective::initialization_coupling",
+          "subjective::package_organization"
+        ],
+        "covered_subjective": [
+          "subjective::abstraction_fitness",
+          "subjective::authorization_consistency",
+          "subjective::convention_outlier",
+          "subjective::cross_module_architecture",
+          "subjective::dependency_health",
+          "subjective::high_level_elegance",
+          "subjective::incomplete_migration",
+          "subjective::initialization_coupling",
+          "subjective::low_level_elegance",
+          "subjective::package_organization"
+        ],
+        "stale_sync_injected": [],
+        "stale_sync_pruned": [],
+        "auto_cluster_changes": 0,
+        "import_scores_injected": [],
+        "import_scores_pruned": [],
+        "sync_status": "synced",
+        "sync_message": null
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:39:27+00:00",
+      "action": "review_import_sync",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "trigger": "review_import",
+        "new_ids": [
+          "review::.::holistic::ai_generated_debt::verbose_docstrings",
+          "review::.::holistic::api_surface_coherence::backtest_function_vs_class",
+          "review::.::holistic::contract_coherence::implicit_prediction_schema",
+          "review::.::holistic::design_coherence::signal_dataclass_unused_internally",
+          "review::.::holistic::error_consistency::no_validation_on_config_load",
+          "review::.::holistic::logic_clarity::memory_two_pass_iteration",
+          "review::.::holistic::mid_level_elegance::swarm_reason_string_building",
+          "review::.::holistic::naming_quality::cat_abbreviation_in_memory",
+          "review::.::holistic::test_strategy::no_autoresearch_tests",
+          "review::.::holistic::type_safety::dict_str_any_inputs"
+        ],
+        "added_to_queue": [
+          "review::.::holistic::ai_generated_debt::verbose_docstrings",
+          "review::.::holistic::api_surface_coherence::backtest_function_vs_class",
+          "review::.::holistic::contract_coherence::implicit_prediction_schema",
+          "review::.::holistic::design_coherence::signal_dataclass_unused_internally",
+          "review::.::holistic::error_consistency::no_validation_on_config_load",
+          "review::.::holistic::logic_clarity::memory_two_pass_iteration",
+          "review::.::holistic::mid_level_elegance::swarm_reason_string_building",
+          "review::.::holistic::naming_quality::cat_abbreviation_in_memory",
+          "review::.::holistic::test_strategy::no_autoresearch_tests",
+          "review::.::holistic::type_safety::dict_str_any_inputs"
+        ],
+        "workflow_injected_ids": [],
+        "triage_injected": false,
+        "triage_injected_ids": [],
+        "triage_deferred": false,
+        "diff_new": 10,
+        "diff_reopened": 0,
+        "diff_auto_resolved": 13,
+        "stale_pruned_from_queue": [
+          "review::.::holistic::design_coherence::hardcoded_output_path",
+          "review::.::holistic::logic_clarity::fragile_price_heuristic",
+          "review::.::holistic::mid_level_elegance::filter_type_ambiguity",
+          "review::.::holistic::naming_quality::terse_variable_names",
+          "review::.::holistic::test_strategy::no_config_tests",
+          "review::.::holistic::test_strategy::no_memory_tests",
+          "review::.::holistic::test_strategy::no_monitor_tests",
+          "review::.::holistic::test_strategy::no_swarm_tests"
+        ],
+        "covered_subjective_pruned_from_queue": [
+          "subjective::ai_generated_debt",
+          "subjective::api_surface_coherence",
+          "subjective::contract_coherence",
+          "subjective::error_consistency",
+          "subjective::type_safety"
+        ],
+        "covered_subjective": [
+          "subjective::abstraction_fitness",
+          "subjective::ai_generated_debt",
+          "subjective::api_surface_coherence",
+          "subjective::authorization_consistency",
+          "subjective::contract_coherence",
+          "subjective::convention_outlier",
+          "subjective::cross_module_architecture",
+          "subjective::dependency_health",
+          "subjective::design_coherence",
+          "subjective::error_consistency",
+          "subjective::high_level_elegance",
+          "subjective::incomplete_migration",
+          "subjective::initialization_coupling",
+          "subjective::logic_clarity",
+          "subjective::low_level_elegance",
+          "subjective::mid_level_elegance",
+          "subjective::naming_quality",
+          "subjective::package_organization",
+          "subjective::test_strategy",
+          "subjective::type_safety"
+        ],
+        "stale_sync_injected": [],
+        "stale_sync_pruned": [],
+        "auto_cluster_changes": 0,
+        "import_scores_injected": [],
+        "import_scores_pruned": [],
+        "sync_status": "synced",
+        "sync_message": null
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:39:32+00:00",
+      "action": "clear_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:39:32+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 5
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:40:31+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 6
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:42:51+00:00",
+      "action": "seed_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:42:51+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 7
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:43:09+00:00",
+      "action": "done",
+      "issue_ids": [
+        "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module"
+      ],
+      "cluster_name": null,
+      "actor": "user",
+      "note": "Added test_autoresearch.py with 8 tests covering run(), _random_config(), _perturb_config()",
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:43:09+00:00",
+      "action": "resolve",
+      "issue_ids": [
+        "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module"
+      ],
+      "cluster_name": null,
+      "actor": "user",
+      "note": "Added test_autoresearch.py with 8 tests covering run(), _random_config(), _perturb_config()",
+      "detail": {
+        "status": "fixed",
+        "attestation": "I have actually Added test_autoresearch.py with 8 tests covering run(), _random_config(), _perturb_config() and I am not gaming the score."
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:43:26+00:00",
+      "action": "done",
+      "issue_ids": [
+        "test_coverage::kalshi_autoresearch/memory.py::untested_module"
+      ],
+      "cluster_name": null,
+      "actor": "user",
+      "note": "Added tests/test_memory.py with 9 tests covering from_predictions, top_conditions, should_trade, and bucket classification",
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:43:49+00:00",
+      "action": "focus",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "user",
+      "note": null,
+      "detail": {
+        "action": "clear",
+        "previous": "auto/test_coverage-untested_module"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:44:05+00:00",
+      "action": "done",
+      "issue_ids": [
+        "workflow::run-scan"
+      ],
+      "cluster_name": null,
+      "actor": "user",
+      "note": "Completed all code fixes: removed dead code, added tests for all modules, fixed naming, extracted helpers, made paths configurable",
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:44:24+00:00",
+      "action": "reconcile",
+      "issue_ids": [
+        "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module"
+      ],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "superseded_count": 1,
+        "pruned_count": 0,
+        "resurfaced_count": 0,
+        "clusters_completed_count": 0
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:44:24+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 8
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:45:54+00:00",
+      "action": "review_import_sync",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "trigger": "review_import",
+        "new_ids": [
+          "review::.::holistic::contract_coherence::implicit_prediction_schema_v2",
+          "review::.::holistic::test_strategy::no_integration_tests",
+          "review::.::holistic::type_safety::dict_str_any_inputs_v2"
+        ],
+        "added_to_queue": [
+          "review::.::holistic::contract_coherence::implicit_prediction_schema_v2",
+          "review::.::holistic::test_strategy::no_integration_tests",
+          "review::.::holistic::type_safety::dict_str_any_inputs_v2"
+        ],
+        "workflow_injected_ids": [],
+        "triage_injected": false,
+        "triage_injected_ids": [],
+        "triage_deferred": false,
+        "diff_new": 3,
+        "diff_reopened": 0,
+        "diff_auto_resolved": 30,
+        "stale_pruned_from_queue": [
+          "review::.::holistic::ai_generated_debt::verbose_docstrings",
+          "review::.::holistic::api_surface_coherence::backtest_function_vs_class",
+          "review::.::holistic::contract_coherence::implicit_prediction_schema",
+          "review::.::holistic::design_coherence::signal_dataclass_unused_internally",
+          "review::.::holistic::error_consistency::no_validation_on_config_load",
+          "review::.::holistic::logic_clarity::memory_two_pass_iteration",
+          "review::.::holistic::mid_level_elegance::swarm_reason_string_building",
+          "review::.::holistic::naming_quality::cat_abbreviation_in_memory",
+          "review::.::holistic::test_strategy::no_autoresearch_tests",
+          "review::.::holistic::type_safety::dict_str_any_inputs"
+        ],
+        "covered_subjective_pruned_from_queue": [],
+        "covered_subjective": [
+          "subjective::abstraction_fitness",
+          "subjective::ai_generated_debt",
+          "subjective::api_surface_coherence",
+          "subjective::authorization_consistency",
+          "subjective::contract_coherence",
+          "subjective::convention_outlier",
+          "subjective::cross_module_architecture",
+          "subjective::dependency_health",
+          "subjective::design_coherence",
+          "subjective::error_consistency",
+          "subjective::high_level_elegance",
+          "subjective::incomplete_migration",
+          "subjective::initialization_coupling",
+          "subjective::logic_clarity",
+          "subjective::low_level_elegance",
+          "subjective::mid_level_elegance",
+          "subjective::naming_quality",
+          "subjective::package_organization",
+          "subjective::test_strategy",
+          "subjective::type_safety"
+        ],
+        "stale_sync_injected": [],
+        "stale_sync_pruned": [],
+        "auto_cluster_changes": 0,
+        "import_scores_injected": [],
+        "import_scores_pruned": [],
+        "sync_status": "synced",
+        "sync_message": null
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:45:56+00:00",
+      "action": "clear_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:45:56+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 10
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:48:04+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 11
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:49:42+00:00",
+      "action": "review_import_sync",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "trigger": "review_import",
+        "new_ids": [
+          "review::.::holistic::contract_coherence::config_keys_implicit",
+          "review::.::holistic::test_strategy::no_pipeline_integration_test",
+          "review::.::holistic::type_safety::config_dict_untyped"
+        ],
+        "added_to_queue": [
+          "review::.::holistic::contract_coherence::config_keys_implicit",
+          "review::.::holistic::test_strategy::no_pipeline_integration_test",
+          "review::.::holistic::type_safety::config_dict_untyped"
+        ],
+        "workflow_injected_ids": [],
+        "triage_injected": false,
+        "triage_injected_ids": [],
+        "triage_deferred": false,
+        "diff_new": 3,
+        "diff_reopened": 0,
+        "diff_auto_resolved": 23,
+        "stale_pruned_from_queue": [
+          "review::.::holistic::contract_coherence::implicit_prediction_schema_v2",
+          "review::.::holistic::test_strategy::no_integration_tests",
+          "review::.::holistic::type_safety::dict_str_any_inputs_v2"
+        ],
+        "covered_subjective_pruned_from_queue": [],
+        "covered_subjective": [
+          "subjective::abstraction_fitness",
+          "subjective::ai_generated_debt",
+          "subjective::api_surface_coherence",
+          "subjective::authorization_consistency",
+          "subjective::contract_coherence",
+          "subjective::convention_outlier",
+          "subjective::cross_module_architecture",
+          "subjective::dependency_health",
+          "subjective::design_coherence",
+          "subjective::error_consistency",
+          "subjective::high_level_elegance",
+          "subjective::incomplete_migration",
+          "subjective::initialization_coupling",
+          "subjective::logic_clarity",
+          "subjective::low_level_elegance",
+          "subjective::mid_level_elegance",
+          "subjective::naming_quality",
+          "subjective::package_organization",
+          "subjective::test_strategy",
+          "subjective::type_safety"
+        ],
+        "stale_sync_injected": [],
+        "stale_sync_pruned": [],
+        "auto_cluster_changes": 0,
+        "import_scores_injected": [],
+        "import_scores_pruned": [],
+        "sync_status": "synced",
+        "sync_message": null
+      }
+    },
+    {
+      "timestamp": "2026-03-17T12:49:45+00:00",
+      "action": "seed_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-03-17T12:49:45+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 13
+      }
+    }
+  ],
+  "epic_triage_meta": {},
+  "commit_log": [],
+  "uncommitted_issues": [
+    "test_coverage::kalshi_autoresearch/autoresearch.py::untested_module"
+  ],
+  "commit_tracking_branch": null,
+  "scan_count_at_plan_start": 13
+}

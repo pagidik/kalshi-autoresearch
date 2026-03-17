@@ -1,0 +1,26 @@
+{
+  "batch": "ai_generated_debt",
+  "batch_index": 13,
+  "assessments": {
+    "ai_generated_debt": 84.0
+  },
+  "dimension_notes": {
+    "ai_generated_debt": {
+      "evidence": [
+        "No dead code remaining",
+        "No unused imports or variables",
+        "Clean calculation paths without redundant computations"
+      ],
+      "impact_scope": "codebase",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "ai_generated_debt": {
+      "dimension_character": "AI-generated code patterns have been cleaned up. No dead calculations, unused variables, or orphaned imports remain.",
+      "score_rationale": "Previous AI-generation artifacts (dead dollar calculation, unused ewma_edge, unused re import) have all been removed. Code is clean."
+    }
+  },
+  "issues": []
+}

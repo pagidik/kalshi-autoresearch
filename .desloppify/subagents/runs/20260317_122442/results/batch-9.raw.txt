@@ -1,0 +1,42 @@
+{
+  "batch": "mid_level_elegance",
+  "batch_index": 9,
+  "assessments": {
+    "mid_level_elegance": 72.0
+  },
+  "dimension_notes": {
+    "mid_level_elegance": {
+      "evidence": [
+        "Well-structured functions",
+        "Awkward list/tuple handling in _passes_filter"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "mid_level_elegance": {
+      "dimension_character": "Generally well-structured with some awkward patterns.",
+      "score_rationale": "Most functions readable. _passes_filter type ambiguity is main friction."
+    }
+  },
+  "issues": [
+    {
+      "dimension": "mid_level_elegance",
+      "identifier": "filter_type_ambiguity",
+      "summary": "_passes_filter has runtime isinstance check for implied_range type",
+      "related_files": [
+        "kalshi_autoresearch/backtest.py"
+      ],
+      "evidence": [
+        "isinstance(lo, list) check on line 33"
+      ],
+      "suggestion": "Always unpack with indexing",
+      "confidence": "high",
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    }
+  ],
+  "context_updates": {}
+}

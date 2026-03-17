@@ -1,0 +1,25 @@
+{
+  "batch": "incomplete_migration",
+  "batch_index": 14,
+  "assessments": {
+    "incomplete_migration": 85.0
+  },
+  "dimension_notes": {
+    "incomplete_migration": {
+      "evidence": [
+        "No incomplete migrations detected"
+      ],
+      "impact_scope": "local",
+      "fix_scope": "single_edit",
+      "confidence": "high"
+    }
+  },
+  "dimension_judgment": {
+    "incomplete_migration": {
+      "dimension_character": "Consistent state with no abandoned refactoring.",
+      "score_rationale": "Clean - no stalled migrations."
+    }
+  },
+  "issues": [],
+  "context_updates": {}
+}

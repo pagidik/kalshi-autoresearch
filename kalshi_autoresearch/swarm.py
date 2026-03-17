@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from .types import SignalDict
+
 
 @dataclass
 class Vote:
@@ -31,7 +33,7 @@ class _Agent:
 
     name: str = "BaseAgent"
 
-    def vote(self, signal: dict[str, Any], config: dict[str, Any]) -> Vote:
+    def vote(self, signal: SignalDict, config: dict[str, Any]) -> Vote:
         raise NotImplementedError
 
 
@@ -40,7 +42,7 @@ class _WhaleChaser(_Agent):
 
     name = "WhaleChaser"
 
-    def vote(self, signal: dict[str, Any], config: dict[str, Any]) -> Vote:
+    def vote(self, signal: SignalDict, config: dict[str, Any]) -> Vote:
         dollar = signal.get("dollar_observed", 0)
         threshold = config.get("min_trade_usd", 500) * 2
         if dollar >= threshold:
@@ -53,7 +55,7 @@ class _MomentumRider(_Agent):
 
     name = "MomentumRider"
 
-    def vote(self, signal: dict[str, Any], config: dict[str, Any]) -> Vote:
+    def vote(self, signal: SignalDict, config: dict[str, Any]) -> Vote:
         implied = signal.get("implied_pct", 0)
         if implied >= 0.80:
             return Vote(self.name, True, f"Strong momentum: {implied:.0%}")
@@ -65,7 +67,7 @@ class _Contrarian(_Agent):
 
     name = "Contrarian"
 
-    def vote(self, signal: dict[str, Any], config: dict[str, Any]) -> Vote:
+    def vote(self, signal: SignalDict, config: dict[str, Any]) -> Vote:
         implied = signal.get("implied_pct", 0)
         if implied >= 0.90:
             return Vote(self.name, False, "Too expensive, contrarian pass")
@@ -79,7 +81,7 @@ class _Conservative(_Agent):
 
     name = "Conservative"
 
-    def vote(self, signal: dict[str, Any], config: dict[str, Any]) -> Vote:
+    def vote(self, signal: SignalDict, config: dict[str, Any]) -> Vote:
         implied = signal.get("implied_pct", 0)
         dollar = signal.get("dollar_observed", 0)
         min_usd = config.get("min_trade_usd", 500)
@@ -93,7 +95,7 @@ class _ValueHunter(_Agent):
 
     name = "ValueHunter"
 
-    def vote(self, signal: dict[str, Any], config: dict[str, Any]) -> Vote:
+    def vote(self, signal: SignalDict, config: dict[str, Any]) -> Vote:
         category = signal.get("category", "other")
         implied = signal.get("implied_pct", 0)
         # Heuristic: politics/crypto tend to have more mispricing
@@ -127,7 +129,7 @@ class Swarm:
             _ValueHunter(),
         ]
 
-    def vote(self, signal: dict[str, Any]) -> SwarmResult:
+    def vote(self, signal: SignalDict) -> SwarmResult:
         """Run all agents and return consensus result.
 
         Args:

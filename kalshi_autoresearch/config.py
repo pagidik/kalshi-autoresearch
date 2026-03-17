@@ -27,10 +27,10 @@ def load_config(path: str | Path) -> dict[str, Any]:
     Returns:
         Merged config dict with defaults filled in.
     """
-    p = Path(path)
-    if not p.exists():
+    file_path = Path(path)
+    if not file_path.exists():
         return dict(DEFAULT_CONFIG)
-    with open(p, "r") as f:
+    with open(file_path, "r") as f:
         user_cfg = json.load(f)
     merged = dict(DEFAULT_CONFIG)
     merged.update(user_cfg)
@@ -44,7 +44,7 @@ def save_config(config: dict[str, Any], path: str | Path) -> None:
         config: Configuration dictionary.
         path: Destination file path.
     """
-    p = Path(path)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    with open(p, "w") as f:
+    file_path = Path(path)
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(file_path, "w") as f:
         json.dump(config, f, indent=2)

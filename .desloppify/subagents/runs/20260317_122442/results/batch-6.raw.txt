@@ -1,0 +1,50 @@
+{
+  "batch": "abstraction_fitness",
+  "batch_index": 6,
+  "assessments": {
+    "abstraction_fitness": 76.0
+  },
+  "dimension_notes": {
+    "abstraction_fitness": {
+      "evidence": [
+        "Good dataclass usage",
+        "Duplicated bucket logic in memory.py"
+      ],
+      "impact_scope": "module",
+      "fix_scope": "single_edit",
+      "confidence": "high",
+      "sub_axes": {
+        "abstraction_leverage": 72.0,
+        "indirection_cost": 85.0,
+        "interface_honesty": 78.0,
+        "delegation_density": 70.0,
+        "definition_directness": 80.0,
+        "type_discipline": 74.0
+      }
+    }
+  },
+  "dimension_judgment": {
+    "abstraction_fitness": {
+      "dimension_character": "Well-chosen abstractions with some duplication.",
+      "score_rationale": "Good overall. Duplicated bucket logic reduces score."
+    }
+  },
+  "issues": [
+    {
+      "dimension": "abstraction_fitness",
+      "identifier": "duplicated_bucket_logic",
+      "summary": "Implied probability bucketing duplicated in memory.py",
+      "related_files": [
+        "kalshi_autoresearch/memory.py"
+      ],
+      "evidence": [
+        "Lines 85-90 and 147-152 contain identical bucketing logic"
+      ],
+      "suggestion": "Extract helper method",
+      "confidence": "high",
+      "impact_scope": "module",
+      "fix_scope": "single_edit"
+    }
+  ],
+  "context_updates": {}
+}

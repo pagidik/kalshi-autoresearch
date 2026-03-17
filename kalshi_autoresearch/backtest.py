@@ -8,6 +8,7 @@ from typing import Any
 import numpy as np
 
 from .config import DEFAULT_CONFIG
+from .types import Prediction
 
 
 @dataclass
@@ -22,17 +23,16 @@ class BacktestResult:
     pnl: list[float]
 
 
-def _passes_filter(pred: dict[str, Any], config: dict[str, Any]) -> bool:
+def _passes_filter(pred: Prediction, config: dict[str, Any]) -> bool:
     """Check if a prediction passes the config filters."""
     dollar = pred.get("dollar_observed", 0)
     if dollar < config.get("min_trade_usd", 0):
         return False
 
     implied = pred.get("implied_pct", 0)
-    lo, hi = config.get("implied_range", (0, 1))
-    if isinstance(lo, list):
-        lo, hi = lo[0], lo[1]
-    if not (lo <= implied <= hi):
+    implied_range = config.get("implied_range", [0, 1])
+    range_low, range_high = implied_range[0], implied_range[1]
+    if not (range_low <= implied <= range_high):
         return False
 
     category = pred.get("category", "other")
@@ -43,7 +43,7 @@ def _passes_filter(pred: dict[str, Any], config: dict[str, Any]) -> bool:
     return True
 
 
-def backtest(predictions: list[dict[str, Any]], config: dict[str, Any] | None = None) -> BacktestResult:
+def backtest(predictions: list[Prediction], config: dict[str, Any] | None = None) -> BacktestResult:
     """Run a backtest over a list of prediction dicts.
 
     Each prediction dict should contain:
@@ -63,9 +63,8 @@ def backtest(predictions: list[dict[str, Any]], config: dict[str, Any] | None = 
     if config:
         cfg.update(config)
 
-    bet_size = cfg.get("bet_size", 100)
-    kelly_fraction = cfg.get("kelly_fraction", 0.25)
-    ewma_decay = cfg.get("ewma_decay", 0.94)
+    bet_size = cfg["bet_size"]
+    kelly_fraction = cfg["kelly_fraction"]
 
     filtered = [p for p in predictions if _passes_filter(p, cfg)]
 
@@ -80,21 +79,13 @@ def backtest(predictions: list[dict[str, Any]], config: dict[str, Any] | None = 
         )
 
     pnl: list[float] = []
-    ewma_edge = 0.0
 
-    for i, pred in enumerate(filtered):
+    for pred in filtered:
         implied = pred.get("implied_pct", 0.5)
         outcome = pred.get("outcome", 0)
 
         # Kelly-sized bet: edge = outcome - implied, sized by kelly_fraction
         raw_pnl = (outcome - implied) * bet_size * kelly_fraction
-
-        # Apply EWMA weighting: recent signals weighted more
-        if i == 0:
-            ewma_edge = raw_pnl
-        else:
-            ewma_edge = ewma_decay * ewma_edge + (1 - ewma_decay) * raw_pnl
-
         pnl.append(raw_pnl)
 
     pnl_arr = np.array(pnl)
