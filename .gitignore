@@ -52,3 +52,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+GRANT_APPLICATION.md
+reference/
