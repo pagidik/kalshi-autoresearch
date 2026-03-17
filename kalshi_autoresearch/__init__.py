@@ -12,5 +12,4 @@ from .swarm import Swarm
 from .backtest import backtest
 
 __version__ = "0.1.0"
-__author__ = "Kishore Reddy Pagidi"
 __all__ = ["Monitor", "Autoresearch", "Memory", "Swarm", "backtest"]

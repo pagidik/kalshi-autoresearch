@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # kalshi-autoresearch
 
 **Self-improving signal detection for Kalshi prediction markets.**
@@ -13,9 +14,9 @@ A Python library that applies Karpathy-style autoresearch to find, evaluate, and
 Most prediction market bots use fixed rules. This one improves its own rules every night.
 
 ```
-Wave 1: test 50 parameter configs → find best Sharpe
-Wave 2: generate new configs based on what worked → test again  
-Wave 3: perturb winners ±20% → explore nearby space
+Wave 1: test 50 parameter configs â†’ find best Sharpe
+Wave 2: generate new configs based on what worked â†’ test again  
+Wave 3: perturb winners Â±20% â†’ explore nearby space
 ...
 Wave N: converge on optimal signal filter for current market conditions
 ```
@@ -149,7 +150,3 @@ Prediction markets are a research-grade testbed for signal detection algorithms.
 ## License
 
 MIT -- do whatever you want with it.
-
-## Author
-
-Built by [Kishore Reddy Pagidi](https://linkedin.com/in/kishore005/) -- AI PM at SOLIDWORKS, founder of [Akira Data](https://akiradata.ai), CoRL 2023 paper author.
