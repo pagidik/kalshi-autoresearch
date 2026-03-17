@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kalshi-autoresearch"
+version = "0.1.0"
+description = "Self-improving signal detection for Kalshi prediction markets"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.28",
+    "numpy>=1.24",
+]
+
+[project.scripts]
+kalshi-research = "kalshi_autoresearch.autoresearch:_cli_main"
+
+[tool.setuptools.packages.find]
+include = ["kalshi_autoresearch*"]

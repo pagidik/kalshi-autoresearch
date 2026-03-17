@@ -55,3 +55,7 @@ Thumbs.db
 
 GRANT_APPLICATION.md
 reference/
+
+__pycache__/
+*.pyc
+.pytest_cache/
